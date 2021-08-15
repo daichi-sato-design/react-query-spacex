@@ -1,34 +1,100 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# react-query-spacex
 
-## Getting Started
+このアプリケーションは、<a href="https://www.udemy.com/course/hasura-nextjs-firebase-hasuragraphql-web/">こちらの教材</a>を参考にしました。Next.js(TypeScript) で SpaceX 社の API を GraphQL/react-query を使用し取得したデータをコンポーネントへ出力を学ぶことが目的のサイトです。
 
-First, run the development server:
+## 🌟 Project setup 🚀
 
-```bash
-npm run dev
-# or
-yarn dev
+## 1. create next app
+
+### 1-1. yarn install \*インストールしていない場合
+
+    npm install --global yarn
+    yarn --version
+
+### 1-2. create-next-app
+
+    npx create-next-app .
+
+#### Node.js version 10.13 以降が必要です。 -> ターミナル `node -v`で ver 確認出来ます。
+
+### 1-3. react-query のインストール
+
+    yarn add @heroicons/react
+    yarn add react-query react-query-devtools graphql graphql-request
+
+### 1-4. prettier の設定 : settings で Require Config + Format On Save にチェック
+
+    touch .prettierrc
+
+```
+{
+    "singleQuote": true,
+    "semi": false
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 2. TypeScript の導入
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+https://nextjs.org/learn/excel/typescript/create-tsconfig
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### 2-1. 空の tsconfig.json 作成
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+    touch tsconfig.json
 
-## Learn More
+### 2-2. 必要 module のインストール
 
-To learn more about Next.js, take a look at the following resources:
+    yarn add -D typescript @types/react @types/node
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2-3. 開発 server 起動
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    yarn dev
 
-## Deploy on Vercel
+### 2-4. \_app.js, index.js -> tsx へ拡張子変更
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 2-5. AppProps 型追記
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+import { AppProps } from 'next/app'
+
+function MyApp({ Component, pageProps }: AppProps) {
+    return <Component {...pageProps} />
+}
+
+export default MyApp
+```
+
+## 3. Tailwind CSS の導入
+
+https://tailwindcss.com/docs/guides/nextjs
+
+### 3-1. 必要 module のインストール
+
+    yarn add -D tailwindcss@latest postcss@latest autoprefixer@latest
+
+### 3-2. tailwind.config.js, postcss.config.js の生成
+
+    npx tailwindcss init -p
+
+### 3-3. tailwind.config.js の purge 設定追加
+
+```
+module.exports = {
+    purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+    darkMode: false,
+    theme: {
+        extend: {},
+    },
+    variants: {
+        extend: {},
+    },
+    plugins: [],
+}
+```
+
+### 3-4. globals.css の編集
+
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
