@@ -1,6 +1,7 @@
 # react-query-spacex
 
-このアプリケーションは、<a href="https://www.udemy.com/course/hasura-nextjs-firebase-hasuragraphql-web/">こちらの教材</a>を参考にしました。Next.js(TypeScript) で SpaceX 社の API を GraphQL/react-query を使用し取得したデータをコンポーネントへ出力を学ぶことが目的のサイトです。
+このアプリケーションは、<a href="https://www.udemy.com/course/hasura-nextjs-firebase-hasuragraphql-web/">こちらの教材</a>を参考にしました。<br>
+SpaceX 社の API を使用し、 GraphQL/react-query でのデータ取得方法を学ぶ Next.js(TypeScript)アプリケーションです。
 
 ## 🌟 Project setup 🚀
 
