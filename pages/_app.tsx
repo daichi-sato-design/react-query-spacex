@@ -1,10 +1,10 @@
 import '../styles/globals.css'
 import { AppProps } from 'next/app'
-import { useState } from 'react'
+import { VFC, useState } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp: VFC = ({ Component, pageProps }: AppProps) => {
   const [queryClient] = useState(() => new QueryClient())
   return (
     <QueryClientProvider client={queryClient}>

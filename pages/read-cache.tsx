@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { VFC } from 'react'
 import Link from 'next/link'
 import { Layout } from '../components/Layout'
 import { useQueryClient } from 'react-query'
@@ -6,7 +6,7 @@ import { Rocket } from '../types/types'
 import { RocketItem } from '../components/RocketItem'
 import { ChevronDoubleLeftIcon } from '@heroicons/react/solid'
 
-const ReadCache: FC = () => {
+const ReadCache: VFC = () => {
   const queryClient = useQueryClient()
   const data = queryClient.getQueryData<Rocket[]>('rockets')
   return (

@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import { FC } from 'react'
+import { VFC } from 'react'
 import { useQueryRockets } from '../hooks/useQueryRockets'
 import { Layout } from '../components/Layout'
 import { RocketItem } from '../components/RocketItem'
 import { ChevronDoubleRightIcon } from '@heroicons/react/solid'
 
-const Home: FC = () => {
+const Home: VFC = () => {
   const { status, data } = useQueryRockets()
   if (status === 'loading') return <Layout title="home">{'Loading...'}</Layout>
   if (status === 'error') return <Layout title="home">{'Error'}</Layout>
