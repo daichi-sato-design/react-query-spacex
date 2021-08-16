@@ -1,10 +1,11 @@
 import Link from 'next/link'
+import { FC } from 'react'
 import { useQueryRockets } from '../hooks/useQueryRockets'
 import { Layout } from '../components/Layout'
 import { RocketItem } from '../components/RocketItem'
 import { ChevronDoubleRightIcon } from '@heroicons/react/solid'
 
-export default function Home() {
+const Home: FC = () => {
   const { status, data } = useQueryRockets()
   if (status === 'loading') return <Layout title="home">{'Loading...'}</Layout>
   if (status === 'error') return <Layout title="home">{'Error'}</Layout>
@@ -27,3 +28,5 @@ export default function Home() {
     </Layout>
   )
 }
+
+export default Home
